@@ -1,11 +1,15 @@
 const express = require('express')
+const dbConnect = require('./database/index')
+const {PORT} = require('./config/index');
+
 const app = express()
-const port = 5000
+
+dbConnect();
 
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World' })
 })
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
 })
